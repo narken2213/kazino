@@ -12,7 +12,7 @@ app.config['SECRET_KEY'] = 'yandexlyceum_secret_key'
 @login_manager.user_loader
 def load_user(user_id):
     db_sess = db_session.create_session()
-    return db_sess.query(User).get(user_id)
+    return db_sess.get(User, user_id)
 
 @app.route("/")
 def index():
@@ -51,7 +51,7 @@ def reqister():
             name=form.name.data,
             surname=form.surname.data,
             age=form.age.data,
-            balance=form.balance.data,
+            balance=100000,
             cardnumber=form.cardnumber.data,
             address=form.address.data,
         )
