@@ -69,6 +69,10 @@ def logout():
     logout_user()
     return redirect("/")
 
+@app.route('/scam')
+@login_required
+def scam():
+    return render_template("scam.html")
 
 def main():
     db_session.global_init("db/users.db")
