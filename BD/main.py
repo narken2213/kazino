@@ -74,6 +74,10 @@ def logout():
 def scam():
     return render_template("scam.html")
 
+@app.route('/case')
+def case():
+    return render_template("case.html")
+
 def main():
     db_session.global_init("db/users.db")
     app.run()
