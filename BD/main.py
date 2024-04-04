@@ -51,6 +51,7 @@ def reqister():
             name=form.name.data,
             surname=form.surname.data,
             age=form.age.data,
+            balance=form.balance.data,
             cardnumber=form.cardnumber.data,
             address=form.address.data,
         )
