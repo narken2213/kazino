@@ -78,6 +78,10 @@ def scam():
 def case():
     return render_template("case.html")
 
+@app.route('/intuichia')
+def intu():
+    return render_template("intu.html")
+
 def main():
     db_session.global_init("db/users.db")
     app.run()
