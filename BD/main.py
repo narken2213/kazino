@@ -2,7 +2,8 @@ from flask import Flask, render_template, redirect
 from data import db_session
 from data.users import User
 from forms.user import RegisterForm, LoginForm
-from flask_login import LoginManager, login_user, login_required, logout_user, current_user
+from flask_login import LoginManager, login_user, login_required, logout_user
+import webbrowser
 
 app = Flask(__name__)
 login_manager = LoginManager()
@@ -81,6 +82,10 @@ def case():
 @app.route('/intuichia')
 def intu():
     return render_template("intu.html")
+
+@app.route('/helper')
+def help():
+    webbrowser.open('https://web.telegram.org/a/#7020446645')
 
 def main():
     db_session.global_init("db/users.db")
