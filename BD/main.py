@@ -75,6 +75,11 @@ def logout():
 def scam():
     return render_template("scam.html")
 
+@app.route('/deposit')
+@login_required
+def deposit():
+    return render_template("deposit.html")
+
 @app.route('/case')
 def case():
     return render_template("case.html")
@@ -90,8 +95,6 @@ def help():
 def main():
     db_session.global_init("db/users.db")
     app.run()
-
-
 
 if __name__ == '__main__':
     main()
