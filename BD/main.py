@@ -64,6 +64,15 @@ def reqister():
     return render_template('register.html', title='Регистрация', form=form)
 
 
+@app.route("/indep")
+def indexdep():
+    db_sess = db_session.create_session()
+    user = db_sess.query(User).filter(User.id == current_user.id).first()
+
+    if user:
+        user.balance += 1000000
+        db_sess.commit()
+    return render_template("index.html")
 
 @app.route('/logout')
 @login_required
