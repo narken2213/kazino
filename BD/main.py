@@ -10,6 +10,7 @@ app = Flask(__name__)
 login_manager = LoginManager()
 login_manager.init_app(app)
 app.config['SECRET_KEY'] = 'tasty_and_anus'
+levl = 0
 
 @login_manager.user_loader
 def load_user(user_id):
@@ -184,6 +185,85 @@ def opencase5():
 @app.route('/intuichia')
 def intu():
     return render_template("intu.html")
+
+
+@app.route('/intu1')
+@login_required
+def start1():
+    global levl
+    levl = 1
+    db_sess = db_session.create_session()
+    print(current_user.id)
+    user = db_sess.query(User).filter(User.id == current_user.id).first()
+
+    if user and user.balance >= 550:
+        user.balance += -550
+        a = 'ok'
+        db_sess.commit()
+    else:
+        a = 'не хватило средств'
+    return render_template("intu.html", win=a)
+
+
+
+@app.route('/intu2')
+@login_required
+def start2():
+    global levl
+    levl = 2
+    db_sess = db_session.create_session()
+    print(current_user.id)
+    user = db_sess.query(User).filter(User.id == current_user.id).first()
+
+    if user and user.balance >= 950:
+        user.balance += -950
+        a = 'ok'
+        db_sess.commit()
+    else:
+        a = 'не хватило средств'
+    return render_template("intu.html", win=a)
+
+
+@app.route('/intu3')
+@login_required
+def start3():
+    global levl
+    levl = 3
+    db_sess = db_session.create_session()
+    print(current_user.id)
+    user = db_sess.query(User).filter(User.id == current_user.id).first()
+
+    if user and user.balance >= 1500:
+        user.balance += -1500
+        a = 'ok'
+        db_sess.commit()
+    else:
+        a = 'не хватило средств'
+    return render_template("intu.html", win=a)
+
+
+@app.route('/intuv1')
+@login_required
+def pop():
+    global levl
+    if levl == 1:
+        w = [-550, 1000]
+        a = random.choice(w)
+    if levl == 2:
+        w = [-950, 2000]
+        a = random.choice(w)
+    if levl == 3:
+        w = [-1500, 3000]
+        a = random.choice(w)
+    db_sess = db_session.create_session()
+    print(current_user.id)
+    user = db_sess.query(User).filter(User.id == current_user.id).first()
+
+    if user:
+        user.balance += a
+        db_sess.commit()
+    return render_template("intu.html", win=a)
+
 
 @app.route('/helper')
 def help():

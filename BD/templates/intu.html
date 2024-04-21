@@ -6,21 +6,41 @@
       <div class="card-body">
         <h5 class="card-title">1 Уровень</h5>
         <p class="card-text">550</p>
-        <a href="#" class="btn btn-primary">Проверить интуицию</a>
+        <a href="/intu1" class="btn btn-primary">Проверить интуицию</a>
       </div>
     </div>
     <div class="card text-white bg-success mb-4" style="max-width: 18rem;">
         <div class="card-body">
           <h5 class="card-title">2 Уровень</h5>
           <p class="card-text">950</p>
-          <a href="#" class="btn btn-primary">Проверить интуицию</a>
+          <a href="/intu2" class="btn btn-primary">Проверить интуицию</a>
         </div>
       </div>
     <div class="card text-light mb-4" style="max-width: 18rem; background-color: #6f42c1;">
         <div class="card-body">
           <h5 class="card-title">3 Уровень</h5>
           <p class="card-text">1500</p>
-          <a href="#" class="btn btn-primary">Проверить интуицию</a>
+          <a href="/intu3" class="btn btn-primary">Проверить интуицию</a>
         </div>
       </div>
+
+
+    <div class="card">
+  <div class="card-body" style="max-width: 18rem; background-color: #FFFF20;">
+    <h5 class="card-title">Выбор Луны</h5>
+    <p class="card-text">Ты уверен?</p>
+    <a href="/intuv1" class="btn btn-primary">Сделать выбор</a>
+  </div>
+</div>
+    <div class="card">
+  <div class="card-body" style="max-width: 18rem; background-color: #808080;">
+    <h5 class="card-title">Выбор Солнца</h5>
+    <p class="card-text">Ты уверен?</p>
+    <a href="/intuv1" class="btn btn-primary">Сделать выбор</a>
+  </div>
+</div>
+
+    <div class="alert alert-primary" role="alert">
+    Прошлый выйгрыш: {{ win }}
+</div>
 {% endblock %}
