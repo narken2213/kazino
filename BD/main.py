@@ -1,14 +1,15 @@
 from flask import Flask, render_template, redirect
+import random
 from data import db_session
 from data.users import User
 from forms.user import RegisterForm, LoginForm
-from flask_login import LoginManager, login_user, login_required, logout_user
+from flask_login import LoginManager, login_user, login_required, logout_user, current_user
 import webbrowser
 
 app = Flask(__name__)
 login_manager = LoginManager()
 login_manager.init_app(app)
-app.config['SECRET_KEY'] = 'yandexlyceum_secret_key'
+app.config['SECRET_KEY'] = 'tasty_and_anus'
 
 @login_manager.user_loader
 def load_user(user_id):
@@ -83,6 +84,93 @@ def deposit():
 @app.route('/case')
 def case():
     return render_template("case.html")
+
+@app.route('/case1')
+@login_required
+def opencase1():
+    db_sess = db_session.create_session()
+    print(current_user.id)
+    user = db_sess.query(User).filter(User.id == current_user.id).first()
+
+    if user and user.balance >= 100:
+        user.balance -= 100
+        a = random.randint(50, 150)
+        user.balance += a
+        db_sess.commit()
+    else:
+        a = 'не хватило средств'
+
+    return render_template("case.html", win=a)
+
+@app.route('/case4')
+@login_required
+def opencase4():
+    db_sess = db_session.create_session()
+    print(current_user.id)
+    user = db_sess.query(User).filter(User.id == current_user.id).first()
+
+    if user and user.balance >= 50000:
+        user.balance -= 50000
+        a = random.randint(100, 100000)
+        user.balance += a
+        db_sess.commit()
+    else:
+        a = 'не хватило средств'
+
+    return render_template("case.html", win=a)
+
+@app.route('/case3')
+@login_required
+def opencase3():
+    db_sess = db_session.create_session()
+    print(current_user.id)
+    user = db_sess.query(User).filter(User.id == current_user.id).first()
+
+    if user and user.balance >= 10000:
+        user.balance -= 10000
+        a = random.randint(5000, 15000)
+        user.balance += a
+        db_sess.commit()
+    else:
+        a = 'не хватило средств'
+
+    return render_template("case.html", win=a)
+
+@app.route('/case2')
+@login_required
+def opencase2():
+    db_sess = db_session.create_session()
+    print(current_user.id)
+    user = db_sess.query(User).filter(User.id == current_user.id).first()
+
+    if user and user.balance >= 1000:
+        user.balance -= 1000
+        a = random.randint(500, 1500)
+        user.balance += a
+        db_sess.commit()
+    else:
+        a = 'не хватило средств'
+
+    return render_template("case.html", win=a)
+
+@app.route('/case5')
+@login_required
+def opencase5():
+    db_sess = db_session.create_session()
+    print(current_user.id)
+    user = db_sess.query(User).filter(User.id == current_user.id).first()
+
+    if user and user.balance >= 1000000:
+        user.balance -= 1000000
+        w = [0,0,0,0,0,0,0,0,0,0,0,0,0,1000000, 100]
+        a = random.choice(w)
+        user.balance += a
+        db_sess.commit()
+    else:
+        a = 'не хватило средств'
+
+    return render_template("case.html", win=a)
+
 
 @app.route('/intuichia')
 def intu():
