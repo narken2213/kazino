@@ -188,7 +188,6 @@ def start1():
     global levl
     levl = 1
     db_sess = db_session.create_session()
-    print(current_user.id)
     user = db_sess.query(User).filter(User.id == current_user.id).first()
 
     if user and user.balance >= 550:
@@ -207,7 +206,6 @@ def start2():
     global levl
     levl = 2
     db_sess = db_session.create_session()
-    print(current_user.id)
     user = db_sess.query(User).filter(User.id == current_user.id).first()
 
     if user and user.balance >= 950:
@@ -225,7 +223,6 @@ def start3():
     global levl
     levl = 3
     db_sess = db_session.create_session()
-    print(current_user.id)
     user = db_sess.query(User).filter(User.id == current_user.id).first()
 
     if user and user.balance >= 1500:
@@ -251,7 +248,6 @@ def pop():
         w = [-1500, 3000]
         a = random.choice(w)
     db_sess = db_session.create_session()
-    print(current_user.id)
     user = db_sess.query(User).filter(User.id == current_user.id).first()
 
     if user:
