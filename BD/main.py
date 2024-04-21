@@ -99,7 +99,6 @@ def case():
 @login_required
 def opencase1():
     db_sess = db_session.create_session()
-    print(current_user.id)
     user = db_sess.query(User).filter(User.id == current_user.id).first()
 
     if user and user.balance >= 100:
@@ -116,7 +115,6 @@ def opencase1():
 @login_required
 def opencase4():
     db_sess = db_session.create_session()
-    print(current_user.id)
     user = db_sess.query(User).filter(User.id == current_user.id).first()
 
     if user and user.balance >= 50000:
@@ -133,7 +131,6 @@ def opencase4():
 @login_required
 def opencase3():
     db_sess = db_session.create_session()
-    print(current_user.id)
     user = db_sess.query(User).filter(User.id == current_user.id).first()
 
     if user and user.balance >= 10000:
@@ -150,7 +147,6 @@ def opencase3():
 @login_required
 def opencase2():
     db_sess = db_session.create_session()
-    print(current_user.id)
     user = db_sess.query(User).filter(User.id == current_user.id).first()
 
     if user and user.balance >= 1000:
@@ -167,7 +163,6 @@ def opencase2():
 @login_required
 def opencase5():
     db_sess = db_session.create_session()
-    print(current_user.id)
     user = db_sess.query(User).filter(User.id == current_user.id).first()
 
     if user and user.balance >= 1000000:
